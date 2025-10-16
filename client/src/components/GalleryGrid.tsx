@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // Gallery images - add your photos here
 const galleryImages = [
+  "yaleo-band-photo.jpg",
   "IMG_0432.jpeg",
   "IMG_0395.jpeg",
   "IMG_0410.jpeg",
