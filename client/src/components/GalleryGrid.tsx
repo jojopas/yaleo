@@ -120,7 +120,9 @@ export default function GalleryGrid() {
                 loadedImages.has(index) ? "opacity-100" : "opacity-0"
               }`}
               loading="lazy"
+              decoding="async"
               onLoad={() => handleImageLoad(index)}
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           </div>
         ))}
