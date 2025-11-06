@@ -76,7 +76,7 @@ export default function Home() {
               </a>
             </div>
             <Button asChild className="bg-primary hover:bg-primary/90">
-              <a href="mailto:yaleosantana@gmail.com">Book Now</a>
+              <a href="mailto:dennis@whatsnextnashville.com">Book Now</a>
             </Button>
           </div>
         </div>
