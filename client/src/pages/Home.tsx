@@ -458,8 +458,12 @@ export default function Home() {
               {/* Management Card */}
               <Card className="p-8 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-primary" />
+                  <div className="flex items-center justify-center mx-auto mb-4">
+                    <img 
+                      src="/images/87220D43-7A99-4A40-B8B9-0A9837250B54.png" 
+                      alt="Dotfilmz Events & Entertainment" 
+                      className="w-40 h-auto"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Management</h3>
                 </div>
