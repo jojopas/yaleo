@@ -3,6 +3,10 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // Gallery images - add your photos here
 const galleryImages = [
+  "IMG_3156.JPG",
+  "IMG_3164.JPG",
+  "IMG_3176.JPG",
+  "IMG_7898.jpg",
   "IMG_0395.jpeg",
   "IMG_0409.jpeg",
   "IMG_0410.jpeg",
