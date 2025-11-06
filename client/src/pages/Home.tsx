@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import GalleryGrid from "@/components/GalleryGrid";
 import { useCalendarEvents } from "@/hooks/useCalendarEvents";
-import { Calendar, Guitar, Mail, MapPin, Music, Users, Ticket, ExternalLink } from "lucide-react";
+import { Calendar, Guitar, Mail, MapPin, Music, Users, Ticket, ExternalLink, Phone, Building2, Globe } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -67,6 +67,9 @@ export default function Home() {
               </a>
               <a href="#videos" className="text-foreground/80 hover:text-primary transition-colors">
                 Videos
+              </a>
+              <a href="#management" className="text-foreground/80 hover:text-primary transition-colors">
+                Management
               </a>
               <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">
                 Contact
@@ -389,28 +392,120 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Agent & Management Section */}
+      <section id="management" className="py-20 bg-background">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
+                Agent & Management
+              </h2>
+              <p className="text-lg text-foreground/80">
+                For booking inquiries and professional representation
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Agent Card */}
+              <Card className="p-8 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
+                <div className="text-center mb-6">
+                  <div className="flex items-center justify-center mx-auto mb-4">
+                    <img 
+                      src="/images/whatsnext.png" 
+                      alt="What's Next Nashville" 
+                      className="w-32 h-auto"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Agent</h3>
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xl font-semibold text-primary">Dennis Kurtz</p>
+                    <p className="text-foreground/70">What's Next Nashville</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                    <a
+                      href="tel:404-734-1154"
+                      className="text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      404-734-1154
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                    <a
+                      href="mailto:dennis@whatsnextnashville.com"
+                      className="text-foreground/80 hover:text-primary transition-colors break-all"
+                    >
+                      dennis@whatsnextnashville.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Globe className="w-5 h-5 text-primary flex-shrink-0" />
+                    <a
+                      href="https://www.whatsnextnashville.info/roster"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground/80 hover:text-primary transition-colors break-all"
+                    >
+                      whatsnextnashville.info/roster
+                    </a>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Management Card */}
+              <Card className="p-8 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Management</h3>
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xl font-semibold text-primary">Phoenix Gonzalez</p>
+                    <p className="text-foreground/70">Dotfilmz, LLC</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                    <a
+                      href="tel:310-424-0106"
+                      className="text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      310-424-0106
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                    <a
+                      href="mailto:yaleosantana@gmail.com"
+                      className="text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      yaleosantana@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-b from-background to-card">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
-              Book Yaleo
+              Connect With Us
             </h2>
             <p className="text-xl text-foreground/90 mb-8">
-              Ready to bring the ultimate Santana experience to your venue? Let's make it happen.
+              Follow Yaleo on social media for updates, videos, and show announcements
             </p>
             <Card className="p-8 bg-card/50 backdrop-blur border-primary/20">
               <div className="flex flex-col gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <Mail className="w-6 h-6 text-primary" />
-                  <a
-                    href="mailto:yaleosantana@gmail.com"
-                    className="text-xl text-primary hover:text-primary/80 transition-colors"
-                  >
-                    yaleosantana@gmail.com
-                  </a>
-                </div>
-                <div className="flex justify-center gap-4 pt-4">
+                <div className="flex justify-center gap-4">
                   <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
                     <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer">
                       Facebook
