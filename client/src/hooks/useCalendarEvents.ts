@@ -57,10 +57,18 @@ export function useCalendarEvents() {
             };
           })
           .filter((event) => {
-            // Filter out past events and rehearsals
+            // Filter out past events
             const isPast = event.end < now;
-            const isRehearsal = event.title.toLowerCase().includes('rehearsal');
-            return !isPast && !isRehearsal;
+            
+            // Filter out non-performance events
+            const title = event.title.toLowerCase();
+            const isRehearsal = title.includes('rehearsal');
+            const isFlight = title.includes('flight') || title.includes('fly') || title.includes('airline');
+            const isTravel = title.includes('travel') || title.includes('airport') || title.includes('depart');
+            const isPersonal = title.includes('birthday') || title.includes('appointment') || title.includes('meeting');
+            
+            // Only show future performance events
+            return !isPast && !isRehearsal && !isFlight && !isTravel && !isPersonal;
           })
           .sort((a, b) => a.start.getTime() - b.start.getTime());
 
