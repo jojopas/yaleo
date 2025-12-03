@@ -50,7 +50,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img
-                src="/images/Yaleo-logo-Yellow-Flat.png"
+                src="/images/US--Yaleo-logo-Yellow-1.png"
                 alt="Yaleo - The Ultimate Santana Experience"
                 className="h-16 w-auto"
               />
@@ -98,7 +98,7 @@ export default function Home() {
         <div className="container relative z-10 text-center py-32">
           <div className="max-w-4xl mx-auto">
             <img
-              src="/images/Yaleo-logo-Yellow-Flat.png"
+              src="/images/US--Yaleo-logo-Yellow-1.png"
               alt="Yaleo - The Ultimate Santana Experience"
               className="w-full max-w-3xl mx-auto mb-8 animate-float"
             />
