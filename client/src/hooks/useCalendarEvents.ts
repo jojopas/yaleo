@@ -29,8 +29,8 @@ export function useCalendarEvents() {
 
         // Use a CORS proxy with cache-busting to ensure fresh data
         const proxyUrl = 'https://corsproxy.io/?';
-        const cacheBuster = `&_=${Date.now()}`;
-        const response = await fetch(proxyUrl + encodeURIComponent(CALENDAR_URL + cacheBuster));
+        const cacheBuster = `&t=${Date.now()}`;
+        const response = await fetch(proxyUrl + encodeURIComponent(CALENDAR_URL) + cacheBuster);
         
         if (!response.ok) {
           throw new Error('Failed to fetch calendar');
