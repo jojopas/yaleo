@@ -27,10 +27,9 @@ export function useCalendarEvents() {
         }
         setError(null);
 
-        // Use a CORS proxy with cache-busting to ensure fresh data
-        const proxyUrl = 'https://corsproxy.io/?';
-        const cacheBuster = `&t=${Date.now()}`;
-        const response = await fetch(proxyUrl + encodeURIComponent(CALENDAR_URL) + cacheBuster);
+        // Use AllOrigins CORS proxy which handles caching better
+        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(CALENDAR_URL)}`;
+        const response = await fetch(proxyUrl);
         
         if (!response.ok) {
           throw new Error('Failed to fetch calendar');
