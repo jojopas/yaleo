@@ -40,8 +40,6 @@ export function useCalendarEvents() {
         const comp = new ICAL.Component(jcalData);
         const vevents = comp.getAllSubcomponents('vevent');
 
-        console.log(`📅 Fetched ${vevents.length} total events from calendar`);
-
         const now = new Date();
         const parsedEvents: CalendarEvent[] = vevents
           .map((vevent) => {
@@ -68,22 +66,6 @@ export function useCalendarEvents() {
             const isFlight = title.includes('flight') || title.includes('fly') || title.includes('airline');
             const isTravel = title.includes('travel') || title.includes('airport') || title.includes('depart');
             const isPersonal = title.includes('birthday') || title.includes('appointment') || title.includes('meeting');
-            
-            // Debug logging
-            const shouldFilter = isPast || isRehearsal || isFlight || isTravel || isPersonal;
-            if (shouldFilter) {
-              console.log(`🚫 Filtered out: "${event.title}" - Reasons:`, {
-                isPast,
-                isRehearsal,
-                isFlight,
-                isTravel,
-                isPersonal,
-                start: event.start,
-                end: event.end
-              });
-            } else {
-              console.log(`✅ Keeping: "${event.title}" - Start: ${event.start}`);
-            }
             
             // Only show future performance events
             return !isPast && !isRehearsal && !isFlight && !isTravel && !isPersonal;
