@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import GalleryGrid from "@/components/GalleryGrid";
 import { useCalendarEvents } from "@/hooks/useCalendarEvents";
-import { Calendar, Guitar, Mail, MapPin, Music, Users, Ticket, ExternalLink, Phone, Building2, Globe } from "lucide-react";
+import { Calendar, Mail, MapPin, Ticket, ExternalLink, Phone, Globe } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -17,22 +17,8 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const formatEventDate = (date: Date) => {
-    return new Intl.DateTimeFormat('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
-    }).format(date);
-  };
-
-  // Extract ticket URL from event description (Eventbrite, Ticketmaster, etc.)
   const extractTicketUrl = (description?: string): string | null => {
     if (!description) return null;
-    
-    // Look for common ticketing URLs
     const urlRegex = /(https?:\/\/(?:www\.)?(?:eventbrite\.com|ticketmaster\.com|tickets\.com|[^\s]+\/tickets)[^\s]*)/gi;
     const match = description.match(urlRegex);
     return match ? match[0] : null;
@@ -50,218 +36,135 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img
-                src="/images/US--Yaleo-logo-Yellow-1.png"
+                src="/images/yaleo-logo-white.png"
                 alt="Yaleo - The Ultimate Santana Experience"
-                className="h-16 w-auto"
+                className="h-12 w-auto mix-blend-screen"
               />
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <a href="#about" className="text-foreground/80 hover:text-primary transition-colors">
-                About
+              <a href="#shows" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+                Tour
               </a>
-              <a href="#shows" className="text-foreground/80 hover:text-primary transition-colors">
-                Shows
-              </a>
-              <a href="#gallery" className="text-foreground/80 hover:text-primary transition-colors">
-                Gallery
-              </a>
-              <a href="#videos" className="text-foreground/80 hover:text-primary transition-colors">
+              <a href="#videos" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
                 Videos
               </a>
-              <a href="#management" className="text-foreground/80 hover:text-primary transition-colors">
-                Management
+              <a href="#gallery" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+                Photos
               </a>
-              <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors">
+              <a href="#about" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+                About
+              </a>
+              <a href="#contact" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
                 Contact
               </a>
             </div>
-            <Button asChild className="bg-primary hover:bg-primary/90">
-              <a href="mailto:dennis@whatsnextnashville.com">Book Now</a>
-            </Button>
+            <div className="flex items-center gap-4">
+              <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors hidden sm:block">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="https://www.youtube.com/@YaleoSantana" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors hidden sm:block">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+              <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
+                <a href="mailto:dennis@whatsnextnashville.com">Book Now</a>
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section - Full bleed style like GTLO */}
-      <section className="relative min-h-screen flex items-end justify-center overflow-hidden">
-        {/* Background Image - Full bleed */}
+      {/* Hero Section - Full bleed like GTLO */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/hero-bg.jpg"
             alt="Yaleo Live Performance"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-transparent"></div>
         </div>
 
-        {/* Hero Content - Bottom aligned */}
-        <div className="container relative z-10 text-center pb-16 pt-32">
-          <div className="max-w-4xl mx-auto">
+        <div className="container relative z-10 text-center">
+          <div className="max-w-3xl mx-auto">
             <img
-              src="/images/US--Yaleo-logo-Yellow-1.png"
+              src="/images/yaleo-logo-white.png"
               alt="Yaleo - The Ultimate Santana Experience"
-              className="w-full max-w-2xl mx-auto mb-6 drop-shadow-2xl"
+              className="w-full max-w-2xl mx-auto drop-shadow-2xl mix-blend-screen"
             />
-            <p className="text-xl md:text-2xl text-white/90 mb-8 font-display drop-shadow-lg">
-              The Ultimate Santana Experience
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg px-8 shadow-lg">
-                <a href="#shows">Tour Dates</a>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="text-lg px-8 border-white/80 text-white hover:bg-white/10 backdrop-blur-sm">
-                <a href="#videos">Watch Videos</a>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-b from-background to-card">
+      {/* Tour Dates - Right after hero, clean list like GTLO */}
+      <section id="shows" className="py-16 bg-background">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
-              The Experience
-            </h2>
-            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-8">
-              Experience the magic, the soul, and the fire of Santana like never before. We bring to you{" "}
-              <span className="text-primary font-semibold">Yaleo</span> — a world-class tribute that captures the full spectrum of Carlos Santana's legendary sound, from the fiery Latin rock of{" "}
-              <span className="italic">Soul Sacrifice</span> and{" "}
-              <span className="italic">Black Magic Woman</span>, to chart-topping hits like{" "}
-              <span className="italic">Smooth</span>,{" "}
-              <span className="italic">The Game of Love</span>, and{" "}
-              <span className="italic">Maria Maria</span>.
-            </p>
-            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
-              Featuring masterful guitar work, powerhouse vocals, and an elite lineup of musicians, Yaleo delivers an electrifying performance rooted in authenticity, groove, and spiritual rhythm. With blazing solos, hypnotic percussion, and a rhythm section that doesn't quit, this is more than a show — it's an experience.
-            </p>
-          </div>
-
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="p-8 text-center bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Guitar className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3">Timeless Classics</h3>
-              <p className="text-foreground/80">
-                From Woodstock's Soul Sacrifice to the smooth grooves that defined generations
-              </p>
-            </Card>
-
-            <Card className="p-8 text-center bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3">Incredible Vocalists</h3>
-              <p className="text-foreground/80">
-                Powerhouse vocals that bring every era of Santana to life with authenticity
-              </p>
-            </Card>
-
-            <Card className="p-8 text-center bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Music className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3">Precision Percussion</h3>
-              <p className="text-foreground/80">
-                Hypnotic rhythms and blazing solos that capture Santana's spiritual energy
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Shows Section */}
-      <section id="shows" className="py-20 bg-background">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
-              Upcoming Shows
-            </h2>
-            <p className="text-lg text-foreground/80">
-              Join us for an unforgettable night of rhythm, soul, and Santana
-            </p>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary">
+            Tour Dates
+          </h2>
 
           {events.length === 0 ? (
-            <Card className="p-12 text-center max-w-2xl mx-auto bg-card/50 backdrop-blur">
-              <Calendar className="w-16 h-16 text-primary/50 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">More Shows Coming Soon</h3>
-              <p className="text-foreground/70 mb-6">
-                We're currently booking new dates. Check back soon or contact us for booking inquiries.
+            <div className="text-center py-12 max-w-2xl mx-auto">
+              <p className="text-xl text-foreground/70 mb-6">
+                More shows coming soon. Check back or contact us for booking inquiries.
               </p>
               <Button asChild className="bg-primary hover:bg-primary/90">
-                <a href="mailto:yaleosantana@gmail.com">Book Us</a>
+                <a href="mailto:dennis@whatsnextnashville.com">Book Us</a>
               </Button>
-            </Card>
+            </div>
           ) : (
-            <div className="grid gap-6 max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto flex flex-col gap-6">
               {events.map((event) => {
                 const ticketUrl = extractTicketUrl(event.description);
-                
+
                 return (
                   <Card
                     key={event.id}
-                    className="p-6 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10"
+                    className="p-6 md:p-8 bg-card/50 border-primary/20 hover:border-primary/50 transition-all group"
                   >
-                    <div className="flex flex-col md:flex-row md:items-center gap-4">
+                    <div className="flex flex-col md:flex-row md:items-center gap-5">
+                      {/* Date Block */}
                       <div className="flex-shrink-0">
-                        <div className="w-20 h-20 bg-primary/20 rounded-lg flex flex-col items-center justify-center relative">
-                          {ticketUrl && (
-                            <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full p-1">
-                              <Ticket className="w-4 h-4" />
-                            </div>
-                          )}
-                          <div className="text-3xl font-bold text-primary">
+                        <div className="w-20 h-20 bg-primary/15 rounded-lg flex flex-col items-center justify-center border border-primary/20">
+                          <span className="text-3xl font-bold text-primary leading-none">
                             {event.start.getDate()}
-                          </div>
-                          <div className="text-sm text-primary/80 uppercase">
+                          </span>
+                          <span className="text-sm font-semibold text-primary/80 uppercase mt-1">
                             {event.start.toLocaleString('en-US', { month: 'short' })}
-                          </div>
+                          </span>
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-2xl font-bold">{event.title}</h3>
-                          {ticketUrl && (
-                            <span className="px-2 py-1 text-xs font-semibold bg-primary/20 text-primary rounded-full">
-                              TICKETED
-                            </span>
-                          )}
-                        </div>
-                        <div className="flex flex-col gap-2 text-foreground/70">
-                          <div className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-primary" />
-                            <span>{formatEventDate(event.start)}</span>
-                          </div>
-                          {event.location && (
-                            <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-primary" />
-                              <span>{event.location}</span>
-                            </div>
-                          )}
-                        </div>
+
+                      {/* Venue & Location */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors uppercase">
+                          {event.title}
+                        </h3>
+                        {event.location && (
+                          <p className="text-sm text-foreground/60 mt-2 flex items-center gap-2">
+                            <MapPin className="w-4 h-4 flex-shrink-0" />
+                            {event.location}
+                          </p>
+                        )}
+                        <p className="text-sm text-foreground/50 mt-1 flex items-center gap-2">
+                          <Calendar className="w-4 h-4 flex-shrink-0" />
+                          {event.start.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })}
+                        </p>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex items-center gap-3 flex-shrink-0">
+                        <Button asChild variant="outline" className="border-primary/40 text-foreground hover:border-primary hover:text-primary px-6">
+                          <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location || event.title)}`} target="_blank" rel="noopener noreferrer">
+                            Info
+                          </a>
+                        </Button>
                         {ticketUrl && (
-                          <div className="mt-4">
-                            <Button 
-                              asChild 
-                              size="sm" 
-                              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                            >
-                              <a 
-                                href={ticketUrl} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2"
-                              >
-                                <Ticket className="w-4 h-4" />
-                                Buy Tickets
-                                <ExternalLink className="w-3 h-3" />
-                              </a>
-                            </Button>
-                          </div>
+                          <Button asChild className="bg-primary hover:bg-primary/90 px-6">
+                            <a href={ticketUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                              <Ticket className="w-4 h-4" />
+                              Tickets
+                            </a>
+                          </Button>
                         )}
                       </div>
                     </div>
@@ -273,47 +176,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-gradient-to-b from-background to-card">
+      {/* Featured Video - Single prominent video like GTLO */}
+      <section id="videos" className="py-16 bg-card/30">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
-              Gallery
-            </h2>
-            <p className="text-lg text-foreground/80">
-              Capturing the energy and passion of every performance
-            </p>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary">
+            Featured Video
+          </h2>
 
-          <GalleryGrid />
-        </div>
-      </section>
-
-      {/* Videos Section */}
-      <section id="videos" className="py-20 bg-background">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
-              Videos
-            </h2>
-            <p className="text-lg text-foreground/80">
-              See Yaleo in action
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/30 hover:border-primary/60 transition-colors">
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="aspect-video rounded-lg overflow-hidden border border-primary/20 shadow-2xl shadow-primary/5">
               <iframe
                 width="100%"
                 height="100%"
                 src="https://www.youtube.com/embed/LF43_OYDucE"
-                title="Yaleo - Santana Experience Performance"
+                title="Yaleo - Featured Performance"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
               ></iframe>
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/30 hover:border-primary/60 transition-colors">
+          </div>
+
+          {/* Additional Videos Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="aspect-video rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-colors">
               <iframe
                 width="100%"
                 height="100%"
@@ -324,7 +210,7 @@ export default function Home() {
                 className="w-full h-full"
               ></iframe>
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/30 hover:border-primary/60 transition-colors">
+            <div className="aspect-video rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-colors">
               <iframe
                 width="100%"
                 height="100%"
@@ -335,7 +221,7 @@ export default function Home() {
                 className="w-full h-full"
               ></iframe>
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/30 hover:border-primary/60 transition-colors">
+            <div className="aspect-video rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-colors">
               <iframe
                 width="100%"
                 height="100%"
@@ -346,168 +232,117 @@ export default function Home() {
                 className="w-full h-full"
               ></iframe>
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/30 hover:border-primary/60 transition-colors">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/WUfCjCx4JvI"
-                title="Yaleo - Santana Tribute Concert"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-            <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/30 hover:border-primary/60 transition-colors">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/ivOsNaymTgE"
-                title="Yaleo - Ultimate Santana Experience"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
           </div>
 
           <div className="text-center mt-8">
             <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary/10">
               <a href="https://www.youtube.com/@YaleoSantana" target="_blank" rel="noopener noreferrer">
-                View More on YouTube
+                More Videos
               </a>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Agent & Management Section */}
-      <section id="management" className="py-20 bg-background">
+      {/* Gallery Section */}
+      <section id="gallery" className="py-16 bg-background">
         <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
-                Agent & Management
-              </h2>
-              <p className="text-lg text-foreground/80">
-                For booking inquiries and professional representation
-              </p>
-            </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary">
+            Photos
+          </h2>
+          <GalleryGrid />
+        </div>
+      </section>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Agent Card */}
-              <Card className="p-8 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
-                <div className="text-center mb-6">
-                  <div className="flex items-center justify-center mx-auto mb-4">
-                    <img 
-                      src="/images/whatsnext.png" 
-                      alt="What's Next Nashville" 
-                      className="w-32 h-auto"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Agent</h3>
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-xl font-semibold text-primary">Dennis Kurtz</p>
-                    <p className="text-foreground/70">What's Next Nashville</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                    <a
-                      href="tel:404-734-1154"
-                      className="text-foreground/80 hover:text-primary transition-colors"
-                    >
-                      404-734-1154
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                    <a
-                      href="mailto:dennis@whatsnextnashville.com"
-                      className="text-foreground/80 hover:text-primary transition-colors break-all"
-                    >
-                      dennis@whatsnextnashville.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Globe className="w-5 h-5 text-primary flex-shrink-0" />
-                    <a
-                      href="https://www.whatsnextnashville.info/roster"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground/80 hover:text-primary transition-colors break-all"
-                    >
-                      whatsnextnashville.info/roster
-                    </a>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Management Card */}
-              <Card className="p-8 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/50 transition-all">
-                <div className="text-center mb-6">
-                  <div className="flex items-center justify-center mx-auto mb-4">
-                    <img 
-                      src="/images/87220D43-7A99-4A40-B8B9-0A9837250B54.png" 
-                      alt="Dotfilmz Events & Entertainment" 
-                      className="w-40 h-auto"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Management</h3>
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-xl font-semibold text-primary">Phoenix Gonzalez</p>
-                    <p className="text-foreground/70">Dotfilmz, LLC</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                    <a
-                      href="tel:310-424-0106"
-                      className="text-foreground/80 hover:text-primary transition-colors"
-                    >
-                      310-424-0106
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                    <a
-                      href="mailto:yaleosantana@gmail.com"
-                      className="text-foreground/80 hover:text-primary transition-colors"
-                    >
-                      yaleosantana@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </Card>
-            </div>
+      {/* About Section */}
+      <section id="about" className="py-16 bg-card/30">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary">
+              About Yaleo
+            </h2>
+            <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+              Experience the magic, the soul, and the fire of Santana like never before.{" "}
+              <span className="text-primary font-semibold">Yaleo</span> is a world-class tribute that captures the full spectrum of Carlos Santana's legendary sound, from the fiery Latin rock of{" "}
+              <span className="italic">Soul Sacrifice</span> and{" "}
+              <span className="italic">Black Magic Woman</span>, to chart-topping hits like{" "}
+              <span className="italic">Smooth</span>,{" "}
+              <span className="italic">The Game of Love</span>, and{" "}
+              <span className="italic">Maria Maria</span>.
+            </p>
+            <p className="text-lg text-foreground/90 leading-relaxed">
+              Featuring masterful guitar work, powerhouse vocals, and an elite lineup of musicians, Yaleo delivers an electrifying performance rooted in authenticity, groove, and spiritual rhythm. With blazing solos, hypnotic percussion, and a rhythm section that doesn't quit, this is more than a show — it's an experience.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-b from-background to-card">
+      {/* Contact & Management Section */}
+      <section id="contact" className="py-16 bg-background">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
-              Connect With Us
-            </h2>
-            <p className="text-xl text-foreground/90 mb-8">
-              Follow Yaleo on social media for updates, videos, and show announcements
-            </p>
-            <Card className="p-8 bg-card/50 backdrop-blur border-primary/20">
-              <div className="flex flex-col gap-6">
-                <div className="flex justify-center gap-4">
-                  <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
-                    <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer">
-                      Facebook
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
-                    <a href="https://www.youtube.com/@YaleoSantana" target="_blank" rel="noopener noreferrer">
-                      YouTube
-                    </a>
-                  </Button>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary">
+            Contact
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Agent */}
+            <Card className="p-8 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/40 transition-all">
+              <div className="text-center mb-6">
+                <img
+                  src="/images/whatsnext.png"
+                  alt="What's Next Nashville"
+                  className="w-32 h-auto mx-auto mb-3"
+                />
+                <h3 className="text-lg font-bold uppercase tracking-wider text-foreground/60">Agent</h3>
+              </div>
+              <div className="space-y-4">
+                <p className="text-xl font-semibold text-primary">Dennis Kurtz</p>
+                <p className="text-foreground/70">What's Next Nashville</p>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a href="tel:404-734-1154" className="text-foreground/80 hover:text-primary transition-colors">
+                    404-734-1154
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a href="mailto:dennis@whatsnextnashville.com" className="text-foreground/80 hover:text-primary transition-colors break-all">
+                    dennis@whatsnextnashville.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Globe className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a href="https://www.whatsnextnashville.info/roster" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary transition-colors break-all">
+                    whatsnextnashville.info/roster
+                  </a>
+                </div>
+              </div>
+            </Card>
+
+            {/* Management */}
+            <Card className="p-8 bg-card/50 backdrop-blur border-primary/20 hover:border-primary/40 transition-all">
+              <div className="text-center mb-6">
+                <img
+                  src="/images/87220D43-7A99-4A40-B8B9-0A9837250B54.png"
+                  alt="Dotfilmz Events & Entertainment"
+                  className="w-40 h-auto mx-auto mb-3"
+                />
+                <h3 className="text-lg font-bold uppercase tracking-wider text-foreground/60">Management</h3>
+              </div>
+              <div className="space-y-4">
+                <p className="text-xl font-semibold text-primary">Phoenix Gonzalez</p>
+                <p className="text-foreground/70">Dotfilmz, LLC</p>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a href="tel:310-424-0106" className="text-foreground/80 hover:text-primary transition-colors">
+                    310-424-0106
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a href="mailto:yaleosantana@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">
+                    yaleosantana@gmail.com
+                  </a>
                 </div>
               </div>
             </Card>
@@ -516,17 +351,26 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-background border-t border-primary/20">
-        <div className="container text-center">
-          <p className="text-foreground/60">
-            © {new Date().getFullYear()} Yaleo - The Ultimate Santana Experience. All rights reserved.
-          </p>
-          <p className="text-foreground/40 text-sm mt-2">
-            #SantanaTribute #Yaleo #LiveMusic #LatinRock
-          </p>
+      <footer className="py-6 bg-background border-t border-primary/10">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-foreground/40 text-sm">
+              © {new Date().getFullYear()} Yaleo - The Ultimate Santana Experience. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors text-sm">
+                Facebook
+              </a>
+              <a href="https://www.youtube.com/@YaleoSantana" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors text-sm">
+                YouTube
+              </a>
+              <a href="mailto:yaleosantana@gmail.com" className="text-foreground/40 hover:text-primary transition-colors text-sm">
+                Contact
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
   );
 }
-
