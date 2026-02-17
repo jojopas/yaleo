@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import ICAL from 'ical.js';
-
 export interface CalendarEvent {
   id: string;
   title: string;
@@ -10,90 +7,42 @@ export interface CalendarEvent {
   description?: string;
 }
 
-const CALENDAR_ID = 'yaleosantana@gmail.com';
-const CALENDAR_URL = `https://calendar.google.com/calendar/ical/${encodeURIComponent(CALENDAR_ID)}/public/basic.ics`;
+// ============================================
+// MANUAL EVENTS LIST - Update this when you have new shows!
+// ============================================
+const STATIC_EVENTS: CalendarEvent[] = [
+  {
+    id: "1",
+    title: "Finley's Irish Pub St. Patty's Day (Largo, FL)",
+    start: new Date("2026-03-17T19:00:00"),
+    end: new Date("2026-03-17T22:00:00"),
+    location: "13477 S Belcher Rd, Largo, FL 33771, USA",
+    description: "Yaleo 7-10pm",
+  },
+  {
+    id: "2",
+    title: "Twisted Fork - (Port Charlotte)",
+    start: new Date("2026-04-25T18:00:00"),
+    end: new Date("2026-04-25T23:00:00"),
+    location: "The Twisted Fork, 2208 El Jobean Rd, Port Charlotte, FL 33948, USA",
+    description: "",
+  },
+  {
+    id: "3",
+    title: "The Acorn Center (North Carolina)",
+    start: new Date("2026-05-15T19:30:00"),
+    end: new Date("2026-05-15T23:00:00"),
+    location: "411 Mosby Ave, Littleton, NC 27850, USA",
+    description: "",
+  },
+];
 
 export function useCalendarEvents() {
-  const [events, setEvents] = useState<CalendarEvent[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // Filter out past events and sort by date
+  const now = new Date();
+  const events = STATIC_EVENTS
+    .filter((event) => event.end >= now)
+    .sort((a, b) => a.start.getTime() - b.start.getTime());
 
-  useEffect(() => {
-    async function fetchEvents() {
-      try {
-        // Only show loading on initial fetch, not on auto-refresh
-        if (events.length === 0) {
-          setLoading(true);
-        }
-        setError(null);
-
-        // Use AllOrigins CORS proxy which handles caching better
-        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(CALENDAR_URL)}`;
-        const response = await fetch(proxyUrl);
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch calendar');
-        }
-
-        const icsData = await response.text();
-        const jcalData = ICAL.parse(icsData);
-        const comp = new ICAL.Component(jcalData);
-        const vevents = comp.getAllSubcomponents('vevent');
-
-        const now = new Date();
-        const parsedEvents: CalendarEvent[] = vevents
-          .map((vevent) => {
-            const event = new ICAL.Event(vevent);
-            const startDate = event.startDate.toJSDate();
-            const endDate = event.endDate.toJSDate();
-            
-            return {
-              id: event.uid,
-              title: event.summary,
-              start: startDate,
-              end: endDate,
-              location: event.location || undefined,
-              description: event.description || undefined,
-            };
-          })
-          .filter((event) => {
-            // Filter out past events
-            const isPast = event.end < now;
-            
-            // Filter out non-performance events
-            const title = event.title.toLowerCase();
-            const isRehearsal = title.includes('rehearsal');
-            const isFlight = title.includes('flight') || title.includes('fly') || title.includes('airline');
-            const isTravel = title.includes('travel') || title.includes('airport') || title.includes('depart');
-            const isPersonal = title.includes('birthday') || title.includes('appointment') || title.includes('meeting');
-            
-            // Only show future performance events
-            return !isPast && !isRehearsal && !isFlight && !isTravel && !isPersonal;
-          })
-          .sort((a, b) => a.start.getTime() - b.start.getTime());
-
-        setEvents(parsedEvents);
-      } catch (err) {
-        console.error('Error fetching calendar:', err);
-        setError(err instanceof Error ? err.message : 'Failed to load events');
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    // Fetch events immediately on mount
-    fetchEvents();
-
-    // Set up auto-refresh every 10 minutes (600000ms)
-    const refreshInterval = setInterval(() => {
-      console.log('Auto-refreshing calendar events...');
-      fetchEvents();
-    }, 10 * 60 * 1000); // 10 minutes
-
-    // Cleanup interval on unmount
-    return () => clearInterval(refreshInterval);
-  }, []);
-
-  return { events, loading, error };
+  return { events, loading: false, error: null };
 }
-

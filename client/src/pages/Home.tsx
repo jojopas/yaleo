@@ -6,7 +6,7 @@ import { Calendar, Guitar, Mail, MapPin, Music, Users, Ticket, ExternalLink, Pho
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const { events, loading: eventsLoading } = useCalendarEvents();
+  const { events } = useCalendarEvents();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -82,44 +82,37 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+      {/* Hero Section - Full bleed style like GTLO */}
+      <section className="relative min-h-screen flex items-end justify-center overflow-hidden">
+        {/* Background Image - Full bleed */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-guitarist-ornate.webp"
-            alt="Yaleo Performance"
-            className="w-full h-full object-cover opacity-40"
+            src="/hero-bg.jpg"
+            alt="Yaleo Live Performance"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
         </div>
 
-        {/* Hero Content */}
-        <div className="container relative z-10 text-center py-32">
+        {/* Hero Content - Bottom aligned */}
+        <div className="container relative z-10 text-center pb-16 pt-32">
           <div className="max-w-4xl mx-auto">
             <img
               src="/images/US--Yaleo-logo-Yellow-1.png"
               alt="Yaleo - The Ultimate Santana Experience"
-              className="w-full max-w-3xl mx-auto mb-8 animate-float"
+              className="w-full max-w-2xl mx-auto mb-6 drop-shadow-2xl"
             />
-            <p className="text-xl md:text-2xl text-foreground/90 mb-8 font-display">
-              From Woodstock to the World
+            <p className="text-xl md:text-2xl text-white/90 mb-8 font-display drop-shadow-lg">
+              The Ultimate Santana Experience
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg px-8">
-                <a href="#shows">View Shows</a>
+              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg px-8 shadow-lg">
+                <a href="#shows">Tour Dates</a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-lg px-8 border-primary text-primary hover:bg-primary/10">
+              <Button size="lg" variant="outline" asChild className="text-lg px-8 border-white/80 text-white hover:bg-white/10 backdrop-blur-sm">
                 <a href="#videos">Watch Videos</a>
               </Button>
             </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-primary rounded-full"></div>
           </div>
         </div>
       </section>
@@ -192,12 +185,7 @@ export default function Home() {
             </p>
           </div>
 
-          {eventsLoading ? (
-            <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
-              <p className="mt-4 text-foreground/60">Loading shows...</p>
-            </div>
-          ) : events.length === 0 ? (
+          {events.length === 0 ? (
             <Card className="p-12 text-center max-w-2xl mx-auto bg-card/50 backdrop-blur">
               <Calendar className="w-16 h-16 text-primary/50 mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-2">More Shows Coming Soon</h3>
