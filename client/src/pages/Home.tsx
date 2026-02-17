@@ -29,10 +29,10 @@ export default function Home() {
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+          isScrolled ? "bg-background/95 backdrop-blur-sm shadow-lg" : "bg-gradient-to-b from-black/90 via-black/50 to-transparent"
         }`}
       >
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img
@@ -41,20 +41,20 @@ export default function Home() {
                 className="h-12 w-auto mix-blend-screen"
               />
             </div>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#shows" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+            <div className="hidden md:flex items-center gap-12">
+              <a href="#shows" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Tour
               </a>
-              <a href="#videos" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+              <a href="#videos" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Videos
               </a>
-              <a href="#gallery" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+              <a href="#gallery" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Photos
               </a>
-              <a href="#about" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+              <a href="#about" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 About
               </a>
-              <a href="#contact" className="text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors">
+              <a href="#contact" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Contact
               </a>
             </div>
