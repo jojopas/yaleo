@@ -36,33 +36,33 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4">
           <div className="hidden md:flex items-center justify-center">
             {/* Left nav items */}
-            <div className="flex items-center gap-8">
-              <a href="#shows" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+            <div className="flex items-center gap-6 lg:gap-8">
+              <a href="#shows" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Tour
               </a>
-              <a href="#gallery" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+              <a href="#gallery" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Photos
               </a>
-              <a href="#videos" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+              <a href="#videos" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Videos
               </a>
             </div>
 
             {/* Center logo */}
-            <a href="#" className="mx-10">
+            <a href="#" className="mx-6 lg:mx-10">
               <img
                 src="/images/yaleo-logo-white.png"
                 alt="Yaleo - The Ultimate Santana Experience"
-                className="h-52 w-auto mix-blend-screen"
+                className="h-24 lg:h-52 w-auto object-contain mix-blend-screen"
               />
             </a>
 
             {/* Right nav items */}
-            <div className="flex items-center gap-8">
-              <a href="#about" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+            <div className="flex items-center gap-6 lg:gap-8">
+              <a href="#about" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 About
               </a>
-              <a href="#contact" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+              <a href="#contact" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Contact
               </a>
               <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
@@ -86,7 +86,7 @@ export default function Home() {
               <img
                 src="/images/yaleo-logo-white.png"
                 alt="Yaleo"
-                className="h-28 w-auto mix-blend-screen"
+                className="max-w-[50vw] md:max-w-none h-auto md:h-28 object-contain mix-blend-screen"
               />
             </a>
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
