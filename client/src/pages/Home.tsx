@@ -2,12 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import GalleryGrid from "@/components/GalleryGrid";
 import { useCalendarEvents } from "@/hooks/useCalendarEvents";
-import { Calendar, Mail, MapPin, Ticket, ExternalLink, Phone, Globe } from "lucide-react";
+import { Calendar, Mail, MapPin, Ticket, ExternalLink, Phone, Globe, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const { events } = useCalendarEvents();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,24 +73,60 @@ export default function Home() {
               </a>
             </div>
           </div>
-          {/* Mobile: just logo + book now */}
+          {/* Mobile: hamburger + centered logo + book now */}
           <div className="flex md:hidden items-center justify-between">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-foreground/90 hover:text-primary transition-colors p-2"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            </button>
             <a href="#">
               <img
                 src="/images/yaleo-logo-white.png"
                 alt="Yaleo"
-                className="h-12 w-auto mix-blend-screen"
+                className="h-28 w-auto mix-blend-screen"
               />
             </a>
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
               <a href="mailto:dennis@whatsnextnashville.com">Book Now</a>
             </Button>
           </div>
+
+          {/* Mobile menu dropdown */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-white/10 pt-4 flex flex-col gap-4 items-center">
+              <a href="#shows" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                Tour
+              </a>
+              <a href="#gallery" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                Photos
+              </a>
+              <a href="#videos" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                Videos
+              </a>
+              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                About
+              </a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                Contact
+              </a>
+              <div className="flex items-center gap-6 mt-2">
+                <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@YaleoSantana" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
-      {/* Hero Section - Full bleed image only */}
-      <section className="relative h-screen overflow-hidden">
+      {/* Hero Section - Full bleed image, shorter on mobile so tour dates peek */}
+      <section className="relative h-[55vh] md:h-screen overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/hero-bg.jpg"
@@ -101,7 +138,7 @@ export default function Home() {
       </section>
 
       {/* Tour Dates - Right after hero, clean list like GTLO */}
-      <section id="shows" className="py-16 bg-background">
+      <section id="shows" className="py-4 md:py-16 bg-background">
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary">
             Tour Dates
@@ -117,23 +154,23 @@ export default function Home() {
               </Button>
             </div>
           ) : (
-            <div className="max-w-4xl mx-auto flex flex-col gap-6">
+            <div className="max-w-4xl mx-auto flex flex-col gap-3 md:gap-6">
               {events.map((event) => {
                 const ticketUrl = extractTicketUrl(event.description);
 
                 return (
                   <Card
                     key={event.id}
-                    className="p-6 md:p-8 bg-card/50 border-primary/20 hover:border-primary/50 transition-all group"
+                    className="p-3 md:p-6 bg-card/50 border-primary/20 hover:border-primary/50 transition-all group"
                   >
-                    <div className="flex flex-col md:flex-row md:items-center gap-5">
+                    <div className="flex flex-row items-center gap-3 md:gap-5">
                       {/* Date Block */}
                       <div className="flex-shrink-0">
-                        <div className="w-20 h-20 bg-primary/15 rounded-lg flex flex-col items-center justify-center border border-primary/20">
-                          <span className="text-3xl font-bold text-primary leading-none">
+                        <div className="w-14 h-14 md:w-18 md:h-18 bg-primary/15 rounded-lg flex flex-col items-center justify-center border border-primary/20">
+                          <span className="text-xl md:text-2xl font-bold text-primary leading-none">
                             {event.start.getDate()}
                           </span>
-                          <span className="text-sm font-semibold text-primary/80 uppercase mt-1">
+                          <span className="text-xs font-semibold text-primary/80 uppercase">
                             {event.start.toLocaleString('en-US', { month: 'short' })}
                           </span>
                         </div>
@@ -141,17 +178,17 @@ export default function Home() {
 
                       {/* Venue & Location */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors uppercase">
+                        <h3 className="text-base md:text-xl font-bold text-foreground group-hover:text-primary transition-colors uppercase leading-tight">
                           {event.title}
                         </h3>
                         {event.location && (
-                          <p className="text-sm text-foreground/60 mt-2 flex items-center gap-2">
-                            <MapPin className="w-4 h-4 flex-shrink-0" />
+                          <p className="text-xs md:text-sm text-foreground/60 mt-1 flex items-center gap-1.5 truncate">
+                            <MapPin className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                             {event.location}
                           </p>
                         )}
-                        <p className="text-sm text-foreground/50 mt-1 flex items-center gap-2">
-                          <Calendar className="w-4 h-4 flex-shrink-0" />
+                        <p className="text-xs md:text-sm text-foreground/50 mt-0.5 flex items-center gap-1.5">
+                          <Calendar className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                           {event.start.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })}
                         </p>
                       </div>
@@ -182,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* Featured Video - Single prominent video like GTLO */}
-      <section id="videos" className="py-16 bg-card/30">
+      <section id="videos" className="py-4 md:py-16 bg-card/30">
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary">
             Featured Video
