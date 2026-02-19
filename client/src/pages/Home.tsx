@@ -32,66 +32,71 @@ export default function Home() {
           isScrolled ? "bg-background/95 backdrop-blur-sm shadow-lg" : "bg-gradient-to-b from-black/90 via-black/50 to-transparent"
         }`}
       >
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img
-                src="/images/yaleo-logo-white.png"
-                alt="Yaleo - The Ultimate Santana Experience"
-                className="h-12 w-auto mix-blend-screen"
-              />
-            </div>
-            <div className="hidden md:flex items-center gap-12">
+        <div className="container mx-auto px-4 py-4">
+          <div className="hidden md:flex items-center justify-center">
+            {/* Left nav items */}
+            <div className="flex items-center gap-8">
               <a href="#shows" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Tour
-              </a>
-              <a href="#videos" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
-                Videos
               </a>
               <a href="#gallery" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Photos
               </a>
+              <a href="#videos" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                Videos
+              </a>
+            </div>
+
+            {/* Center logo */}
+            <a href="#" className="mx-10">
+              <img
+                src="/images/yaleo-logo-white.png"
+                alt="Yaleo - The Ultimate Santana Experience"
+                className="h-52 w-auto mix-blend-screen"
+              />
+            </a>
+
+            {/* Right nav items */}
+            <div className="flex items-center gap-8">
               <a href="#about" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 About
               </a>
               <a href="#contact" className="text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Contact
               </a>
-            </div>
-            <div className="flex items-center gap-4">
-              <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors hidden sm:block">
+              <a href="https://www.facebook.com/YaleoTribute" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
-              <a href="https://www.youtube.com/@YaleoSantana" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors hidden sm:block">
+              <a href="https://www.youtube.com/@YaleoSantana" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </a>
-              <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
-                <a href="mailto:dennis@whatsnextnashville.com">Book Now</a>
-              </Button>
             </div>
+          </div>
+          {/* Mobile: just logo + book now */}
+          <div className="flex md:hidden items-center justify-between">
+            <a href="#">
+              <img
+                src="/images/yaleo-logo-white.png"
+                alt="Yaleo"
+                className="h-12 w-auto mix-blend-screen"
+              />
+            </a>
+            <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
+              <a href="mailto:dennis@whatsnextnashville.com">Book Now</a>
+            </Button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section - Full bleed like GTLO */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Full bleed image only */}
+      <section className="relative h-screen overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/hero-bg.jpg"
             alt="Yaleo Live Performance"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-transparent"></div>
-        </div>
-
-        <div className="container relative z-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <img
-              src="/images/yaleo-logo-white.png"
-              alt="Yaleo - The Ultimate Santana Experience"
-              className="w-full max-w-2xl mx-auto drop-shadow-2xl mix-blend-screen"
-            />
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
         </div>
       </section>
 
