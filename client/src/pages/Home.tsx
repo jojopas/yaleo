@@ -62,6 +62,9 @@ export default function Home() {
               <a href="#about" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 About
               </a>
+              <a href="#bios" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                Bios
+              </a>
               <a href="#contact" className="text-sm lg:text-base font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Contact
               </a>
@@ -108,6 +111,9 @@ export default function Home() {
               </a>
               <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 About
+              </a>
+              <a href="#bios" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
+                Bios
               </a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold uppercase tracking-widest text-foreground/90 hover:text-primary transition-colors">
                 Contact
@@ -315,6 +321,41 @@ export default function Home() {
             <p className="text-lg text-foreground/90 leading-relaxed">
               Featuring masterful guitar work, powerhouse vocals, and an elite lineup of musicians, Yaleo delivers an electrifying performance rooted in authenticity, groove, and spiritual rhythm. With blazing solos, hypnotic percussion, and a rhythm section that doesn't quit, this is more than a show — it's an experience.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Bios Section */}
+      <section id="bios" className="py-16 bg-background">
+        <div className="container">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary">
+            Meet the Band
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {[
+              { name: "Joe Pascual", img: "/images/bios/joe-pascual.jpg" },
+              { name: "Bill Kennedy", img: "/images/bios/bill-kennedy.jpg" },
+              { name: "Tony Roberts", img: "/images/bios/tony-roberts.jpg" },
+              { name: "Devin-Marcus McCants", img: "/images/bios/devin-marcus-mccants.jpg" },
+              { name: "Andy García", img: "/images/bios/andy-garcia.jpg" },
+              { name: "Ceelos Congas", img: "/images/bios/ceelos-congas.jpg" },
+              { name: "Jonathan Barrios", img: "/images/bios/jonathan-barrios.jpg" },
+              { name: "Phoenix Gonzalez", img: "/images/bios/phoenix-gonzalez.jpg" },
+              { name: "Tommy Stephens", img: "/images/bios/tommy-stephens.jpg" },
+            ].map((member) => (
+              <div key={member.name} className="text-center group">
+                <div className="aspect-square rounded-lg overflow-hidden mb-3 border border-primary/20 group-hover:border-primary/50 transition-all">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-foreground">{member.name}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
