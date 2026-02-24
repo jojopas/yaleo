@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import GalleryGrid from "@/components/GalleryGrid";
 import { useCalendarEvents } from "@/hooks/useCalendarEvents";
 import { Calendar, Mail, MapPin, Ticket, ExternalLink, Phone, Globe, Menu, X } from "lucide-react";
@@ -9,6 +10,7 @@ export default function Home() {
   const { events } = useCalendarEvents();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedMember, setSelectedMember] = useState<{ name: string; role: string; img: string; bio: string } | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -334,17 +336,17 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
             {[
-              { name: "Joe Pascual", img: "/images/bios/joe-pascual.jpg" },
-              { name: "Bill Kennedy", img: "/images/bios/bill-kennedy.jpg" },
-              { name: "Tony Roberts", img: "/images/bios/tony-roberts.jpg" },
-              { name: "Devin-Marcus McCants", img: "/images/bios/devin-marcus-mccants.jpg" },
-              { name: "Andy García", img: "/images/bios/andy-garcia.jpg" },
-              { name: "Ceelos Congas", img: "/images/bios/ceelos-congas.jpg" },
-              { name: "Jonathan Barrios", img: "/images/bios/jonathan-barrios.jpg" },
-              { name: "Phoenix Gonzalez", img: "/images/bios/phoenix-gonzalez.jpg" },
-              { name: "Tommy Stephens", img: "/images/bios/tommy-stephens.jpg" },
+              { name: "Joe Pascual", role: "Electric Guitar", img: "/images/bios/joe-pascual.jpg", bio: "Joe Pascual was born in Manila, Philippines to an entertainment family. His mother was an accomplished TV producer and he learned guitar from his uncle early in life. At age 10, he and his sister performed as the Dyna Kids on Philippine TV. In the US, he has shared stages with Maiya Sykes (The Voice) and worked with producer Chris Seefried. He served on the worship team at New Christ Memorial Church — home of the late Grammy winner Andraé Crouch — playing alongside Keith Eaddy (Macy Gray), Patti Howard, and Wayne Linsey (Whitney Houston)." },
+              { name: "Bill Kennedy", role: "Bass Guitar", img: "/images/bios/bill-kennedy.jpg", bio: "Bill Kennedy grew up in New Castle, PA and started playing bass at age 14. He has played everything from traveling lounge acts to rock, Caribbean, reggae, soul, R&B, and blues. Always seeking to perform alongside the best musicians, Bill brings a deep, reliable groove to the Yaleo lineup." },
+              { name: "Tony Roberts", role: "Percussion", img: "/images/bios/tony-roberts.jpg", bio: "Tony Robinson began playing drums at age 5 and has toured nationally as a singer-songwriter, releasing albums DRIFTING and 02.04.21. He has opened for Robben Ford, Corey Harris, and Jarekus Singleton. Based in Central Florida since 2020, Tony also serves as editor and founder of Synth Head Magazine." },
+              { name: "Devin-Marcus McCants", role: "Drums", img: "/images/bios/devin-marcus-mccants.jpg", bio: "Marcus McCants is a multi-talented musician from Lakeland, FL who has played drums since age 4. He also plays bass, saxophone, keyboards, and guitar. A graduate of Full Sail University with a degree in Recording Arts & Sciences, Marcus has been performing since age 10 and elevates the band's vocal harmonies to another level." },
+              { name: "Andy García", role: "Drums", img: "/images/bios/andy-garcia.jpg", bio: "Andy García is a powerhouse drummer deeply influenced by the Afro-Cuban and Latin percussive traditions at the heart of Santana's sound. His ability to blend tight groove with explosive fills makes him a perfect fit for the dynamic and spirited world of Yaleo." },
+              { name: "Ceelos Congas", role: "Congas", img: "/images/bios/ceelos-congas.jpg", bio: "Ceelos brings infectious energy and deep Latin roots to the Yaleo percussion section. With years of experience in congas and hand percussion, he channels the Afro-Cuban rhythms that are the heartbeat of Santana's music, creating the hypnotic, rolling groove that defines the Yaleo live experience." },
+              { name: "Jonathan Barrios", role: "Keyboards", img: "/images/bios/jonathan-barrios.jpg", bio: "Hailing from Polk County, Florida, Jon David Barrios brings a unique Latin flavor rooted in his Cuban heritage. His dedication to recreating the authentic sounds that inspire Yaleo's repertoire, combined with his passion for Latin improvisation, earned him his spot in the lineup by outshining several seasoned players." },
+              { name: "Phoenix Gonzalez", role: "Lead Vocals", img: "/images/bios/phoenix-gonzalez.jpg", bio: "Phoenix Gonzalez is a singer, actress, inventor, and motivational speaker with a 30-year career. A three-time beauty queen winner, she has appeared in Sons of Anarchy and The Tuxedo with Jackie Chan. She founded streaming company dotstudioPRO and invented The Silked Pillow Sleeve, transforming the lives of 650,000+ customers. Phoenix is the powerhouse voice at the front of Yaleo." },
+              { name: "Tommy Stephens", role: "Technical Director", img: "/images/bios/tommy-stephens.jpg", bio: "Tommy Stephens is the technical backbone of Yaleo, overseeing production, sound engineering, and stage setup. His deep expertise in live production ensures every performance sounds and looks flawless — the invisible force behind every great show." },
             ].map((member) => (
-              <div key={member.name} className="text-center group">
+              <div key={member.name} className="text-center group cursor-pointer" onClick={() => setSelectedMember(member)}>
                 <div className="aspect-square rounded-lg overflow-hidden mb-3 border border-primary/20 group-hover:border-primary/50 transition-all">
                   <img
                     src={member.img}
@@ -354,11 +356,37 @@ export default function Home() {
                   />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-foreground">{member.name}</h3>
+                <p className="text-sm text-primary/80 font-medium mt-0.5">{member.role}</p>
+                <p className="text-xs text-foreground/60 mt-1 line-clamp-2 px-1">{member.bio}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Bio Modal */}
+      <Dialog open={!!selectedMember} onOpenChange={(open) => !open && setSelectedMember(null)}>
+        <DialogContent className="max-w-lg">
+          {selectedMember && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-4 mb-2">
+                  <img
+                    src={selectedMember.img}
+                    alt={selectedMember.name}
+                    className="w-20 h-20 rounded-full object-cover border-2 border-primary/30"
+                  />
+                  <div>
+                    <DialogTitle className="text-xl text-primary">{selectedMember.name}</DialogTitle>
+                    <p className="text-sm text-foreground/60 font-medium mt-0.5">{selectedMember.role}</p>
+                  </div>
+                </div>
+              </DialogHeader>
+              <p className="text-foreground/80 leading-relaxed text-sm">{selectedMember.bio}</p>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Contact & Management Section */}
       <section id="contact" className="py-16 bg-background">
