@@ -35,6 +35,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "411 Mosby Ave, Littleton, NC 27850, USA",
     description: "",
   },
+  {
+    id: "4",
+    title: "Edward A. Kenley Centennial Amphitheater (Layton, UT)",
+    start: new Date("2026-08-29T19:00:00"),
+    end: new Date("2026-08-29T23:00:00"),
+    location: "Edward A. Kenley Centennial Amphitheater, Layton, UT",
+    description: "Doors open 7 PM",
+  },
 ];
 
 export function useCalendarEvents() {
