@@ -36,6 +36,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     description: "",
   },
   {
+    id: "5",
+    title: "Davenport, Florida (Private Show)",
+    start: new Date("2026-05-30T18:00:00"),
+    end: new Date("2026-05-30T22:00:00"),
+    location: "Davenport, FL",
+    description: "Private Show",
+  },
+  {
     id: "4",
     title: "Edward A. Kenley Centennial Amphitheater (Layton, UT)",
     start: new Date("2026-08-29T19:00:00"),
