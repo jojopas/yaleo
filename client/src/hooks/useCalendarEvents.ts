@@ -33,7 +33,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-05-15T19:30:00"),
     end: new Date("2026-05-15T23:00:00"),
     location: "411 Mosby Ave, Littleton, NC 27850, USA",
-    description: "",
+    description: "https://www.etix.com/ticket/p/99678040",
   },
   {
     id: "5",
