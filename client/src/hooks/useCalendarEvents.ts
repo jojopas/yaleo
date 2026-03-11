@@ -25,7 +25,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-04-25T18:00:00"),
     end: new Date("2026-04-25T23:00:00"),
     location: "The Twisted Fork, 2208 El Jobean Rd, Port Charlotte, FL 33948, USA",
-    description: "",
+    description: "https://www.freshtix.com/events/yaleo-2026",
   },
   {
     id: "3",
