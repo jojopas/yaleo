@@ -51,6 +51,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "Edward A. Kenley Centennial Amphitheater, Layton, UT",
     description: "Doors open 7 PM",
   },
+  {
+    id: "6",
+    title: "The Dixon Historic Theatre (Dixon, IL)",
+    start: new Date("2027-02-27T19:30:00"),
+    end: new Date("2027-02-27T22:00:00"),
+    location: "114 S. Galena Ave, Dixon, IL 61021, USA",
+    description: "Doors open 6:30 PM",
+  },
 ];
 
 export function useCalendarEvents() {
