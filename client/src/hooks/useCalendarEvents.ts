@@ -25,7 +25,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-04-25T18:00:00"),
     end: new Date("2026-04-25T23:00:00"),
     location: "The Twisted Fork, 2208 El Jobean Rd, Port Charlotte, FL 33948, USA",
-    description: "https://www.freshtix.com/events/yaleo-2026",
+    description: "Doors open 6:00 PM https://www.freshtix.com/events/yaleo-2026",
   },
   {
     id: "3",
@@ -33,7 +33,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-05-15T19:30:00"),
     end: new Date("2026-05-15T23:00:00"),
     location: "411 Mosby Ave, Littleton, NC 27850, USA",
-    description: "https://www.etix.com/ticket/p/99678040",
+    description: "Doors open 6:30 PM https://www.etix.com/ticket/p/99678040",
   },
   {
     id: "5",
@@ -49,7 +49,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-08-29T19:00:00"),
     end: new Date("2026-08-29T23:00:00"),
     location: "Edward A. Kenley Centennial Amphitheater, Layton, UT",
-    description: "Doors open 7 PM",
+    description: "Doors open 7:00 PM",
   },
   {
     id: "6",
