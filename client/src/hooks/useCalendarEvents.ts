@@ -52,6 +52,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     description: "Doors open 7:00 PM",
   },
   {
+    id: "7",
+    title: "Mars Music Hall (Huntsville, AL)",
+    start: new Date("2026-06-06T19:30:00"),
+    end: new Date("2026-06-06T23:00:00"),
+    location: "700 Monroe St SW, Huntsville, AL 35801, USA",
+    description: "",
+  },
+  {
     id: "6",
     title: "The Dixon Historic Theatre (Dixon, IL)",
     start: new Date("2027-02-27T19:30:00"),
