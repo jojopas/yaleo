@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import GalleryGrid from "@/components/GalleryGrid";
 import { useCalendarEvents } from "@/hooks/useCalendarEvents";
-import { Calendar, Mail, MapPin, Ticket, ExternalLink, Phone, Globe, Menu, X } from "lucide-react";
+import { Calendar, Clock, Mail, MapPin, Ticket, ExternalLink, Phone, Globe, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -199,6 +199,12 @@ export default function Home() {
                           <Calendar className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                           {event.start.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })}
                         </p>
+                        {event.description && event.description.includes('Doors open') && (
+                          <p className="text-xs md:text-sm text-foreground/40 mt-0.5 flex items-center gap-1.5">
+                            <Clock className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
+                            {event.description.match(/Doors open [^\s]+ [^\s]+/)?.[0]}
+                          </p>
+                        )}
                       </div>
 
                       {/* Action Buttons */}
