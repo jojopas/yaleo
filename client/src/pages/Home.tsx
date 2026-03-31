@@ -208,7 +208,7 @@ export default function Home() {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="flex items-center gap-3 flex-shrink-0">
+                      <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2 flex-shrink-0">
                         <Button asChild variant="outline" className="border-primary/40 text-foreground hover:border-primary hover:text-primary px-6">
                           <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location || event.title)}`} target="_blank" rel="noopener noreferrer">
                             Info
