@@ -244,8 +244,8 @@ export default function Home() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/LF43_OYDucE"
-                title="Yaleo - Featured Performance"
+                src="https://www.youtube.com/embed/Zrf9woXFrGk"
+                title="Yaleo - Santana Experience Promo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
@@ -281,8 +281,8 @@ export default function Home() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/Zrf9woXFrGk"
-                title="Yaleo - Live Performance"
+                src="https://www.youtube.com/embed/LF43_OYDucE"
+                title="Yaleo - Hope Your Feeling Better"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
