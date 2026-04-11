@@ -22,7 +22,7 @@ export default function Home() {
 
   const extractTicketUrl = (description?: string): string | null => {
     if (!description) return null;
-    const urlRegex = /(https?:\/\/(?:www\.)?(?:eventbrite\.com|ticketmaster\.com|tickets\.com|etix\.com|freshtix\.com|[^\s]+\/tickets?)[^\s]*)/gi;
+    const urlRegex = /(https?:\/\/[^\s]+)/gi;
     const match = description.match(urlRegex);
     return match ? match[0] : null;
   };

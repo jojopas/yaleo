@@ -57,7 +57,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-06-06T19:30:00"),
     end: new Date("2026-06-06T23:00:00"),
     location: "700 Monroe St SW, Huntsville, AL 35801, USA",
-    description: "",
+    description: "https://bit.ly/YaleoVBC",
   },
   {
     id: "6",
