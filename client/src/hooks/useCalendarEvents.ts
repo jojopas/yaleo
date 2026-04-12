@@ -49,7 +49,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-08-29T19:00:00"),
     end: new Date("2026-08-29T23:00:00"),
     location: "Edward A. Kenley Centennial Amphitheater, Layton, UT",
-    description: "Doors open 7:00 PM",
+    description: "Doors open 7:00 PM https://www.davisarts.org/show/08292026/",
   },
   {
     id: "7",
@@ -65,7 +65,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2027-02-27T19:30:00"),
     end: new Date("2027-02-27T22:00:00"),
     location: "114 S. Galena Ave, Dixon, IL 61021, USA",
-    description: "Doors open 6:30 PM",
+    description: "Doors open 6:30 PM https://dixontheatre.com/events-schedule/",
   },
 ];
 
