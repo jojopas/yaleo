@@ -30,8 +30,8 @@ const STATIC_EVENTS: CalendarEvent[] = [
   {
     id: "3",
     title: "The Acorn Center (North Carolina)",
-    start: new Date("2026-05-15T19:30:00"),
-    end: new Date("2026-05-15T23:00:00"),
+    start: new Date("2026-07-09T19:30:00"),
+    end: new Date("2026-07-09T23:00:00"),
     location: "411 Mosby Ave, Littleton, NC 27850, USA",
     description: "Doors open 6:30 PM https://www.etix.com/ticket/p/99678040",
   },
