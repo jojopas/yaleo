@@ -60,6 +60,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     description: "https://bit.ly/YaleoVBC",
   },
   {
+    id: "8",
+    title: "The Merry Widow (Mobile, AL)",
+    start: new Date("2026-06-05T20:00:00"),
+    end: new Date("2026-06-05T23:00:00"),
+    location: "The Merry Widow, Mobile, AL",
+    description: "Doors open 7:00 PM",
+  },
+  {
     id: "6",
     title: "The Dixon Historic Theatre (Dixon, IL)",
     start: new Date("2027-02-27T19:30:00"),
