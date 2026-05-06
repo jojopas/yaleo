@@ -65,7 +65,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-06-05T20:00:00"),
     end: new Date("2026-06-05T23:00:00"),
     location: "The Merry Widow, Mobile, AL",
-    description: "Doors open 7:00 PM",
+    description: "Doors open 7:00 PM https://www.ticketweb.com/event/yaleo-the-ultimate-santana-tribute-the-merry-widow-tickets/14905353",
   },
   {
     id: "6",
