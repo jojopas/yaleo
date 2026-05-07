@@ -75,6 +75,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "114 S. Galena Ave, Dixon, IL 61021, USA",
     description: "Doors open 6:30 PM https://dixontheatre.com/events-schedule/",
   },
+  {
+    id: "9",
+    title: "The Gobbler Theatre (Johnson Creek, WI)",
+    start: new Date("2027-02-26T19:30:00"),
+    end: new Date("2027-02-26T22:00:00"),
+    location: "350 N Watertown St, Johnson Creek, WI 53038, USA",
+    description: "Ticket Sales Coming Soon",
+  },
 ];
 
 export function useCalendarEvents() {
