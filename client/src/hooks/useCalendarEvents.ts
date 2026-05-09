@@ -68,6 +68,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     description: "Doors open 7:00 PM https://www.ticketweb.com/event/yaleo-the-ultimate-santana-tribute-the-merry-widow-tickets/14905353",
   },
   {
+    id: "10",
+    title: "Encore Live (Sarasota, FL)",
+    start: new Date("2026-08-20T19:00:00"),
+    end: new Date("2026-08-20T23:00:00"),
+    location: "8341 N Lockwood Ridge Rd, Sarasota, FL 34243, USA",
+    description: "Tickets to be announced",
+  },
+  {
     id: "6",
     title: "The Dixon Historic Theatre (Dixon, IL)",
     start: new Date("2027-02-27T19:30:00"),
