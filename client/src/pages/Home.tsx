@@ -288,6 +288,28 @@ export default function Home() {
                 className="w-full h-full"
               ></iframe>
             </div>
+            <div className="aspect-video rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-colors">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/MhavCgfjE9U"
+                title="Black Magic Woman - Yaleo at Twisted Fork"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+            <div className="aspect-video rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-colors">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/JgAHUC49mrk"
+                title="Smooth - Yaleo at Twisted Fork"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
           </div>
 
           <div className="text-center mt-8">
