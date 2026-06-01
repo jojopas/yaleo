@@ -506,6 +506,9 @@ export default function Home() {
               <a href="mailto:yaleosantana@gmail.com" className="text-foreground/40 hover:text-primary transition-colors text-sm">
                 Contact
               </a>
+              <a href="/giveaway" className="text-foreground/40 hover:text-primary transition-colors text-sm font-semibold">
+                🎸 Guitar Giveaway
+              </a>
             </div>
           </div>
         </div>
