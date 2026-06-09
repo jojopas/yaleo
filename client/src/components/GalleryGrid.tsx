@@ -3,6 +3,14 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // Gallery images - shuffled mix of all photos
 const galleryImages = [
+  // New photos (June 2026)
+  "yaleo-new-1.jpg",
+  "yaleo-new-2.jpg",
+  "yaleo-new-3.jpg",
+  "yaleo-new-4.jpg",
+  "yaleo-new-5.jpg",
+  "yaleo-new-6.jpg",
+  "yaleo-new-7.jpg",
   // Group shots featured first
   "group shot -2.jpg",
   "grpip--shot--1.jpg",
