@@ -21,6 +21,13 @@ const galleryImages = [
   "yaleo-new-15.jpg",
   "yaleo-new-16.jpg",
   "yaleo-new-17.jpg",
+  "yaleo-new-18.jpg",
+  "yaleo-new-19.jpg",
+  "yaleo-new-20.jpg",
+  "yaleo-new-21.jpg",
+  "yaleo-new-22.jpg",
+  "yaleo-new-23.jpg",
+  "yaleo-new-24.jpg",
   // Group shots featured first
   "group shot -2.jpg",
   "grpip--shot--1.jpg",
