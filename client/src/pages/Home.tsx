@@ -310,6 +310,17 @@ export default function Home() {
                 className="w-full h-full"
               ></iframe>
             </div>
+            <div className="aspect-video rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-colors">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/hAVg7joHkm8"
+                title="Maria Maria - Yaleo Live at Mars Music Hall"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
           </div>
 
           <div className="text-center mt-8">
