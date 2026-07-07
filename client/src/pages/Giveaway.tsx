@@ -34,7 +34,7 @@ export default function Giveaway() {
           <img
             src="/beach-bundle-giveaway.jpg"
             alt="Beach Bundle Giveaway"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover lg:object-contain"
           />
           {/* subtle gradient to blend with form side on desktop */}
           <div className="hidden lg:block absolute inset-y-0 right-0 w-16 bg-gradient-to-r from-transparent to-background/60 pointer-events-none" />
