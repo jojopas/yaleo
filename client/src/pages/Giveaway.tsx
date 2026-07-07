@@ -31,13 +31,10 @@ export default function Giveaway() {
 
         {/* LEFT — Video panel */}
         <div className="lg:w-1/2 bg-black flex items-center justify-center relative overflow-hidden min-h-[50vh] lg:min-h-0 lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)]">
-          <video
-            src="/prs-giveaway.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover lg:object-contain"
+          <img
+            src="/beach-bundle-giveaway.jpg"
+            alt="Beach Bundle Giveaway"
+            className="h-full w-full object-cover"
           />
           {/* subtle gradient to blend with form side on desktop */}
           <div className="hidden lg:block absolute inset-y-0 right-0 w-16 bg-gradient-to-r from-transparent to-background/60 pointer-events-none" />
@@ -52,11 +49,11 @@ export default function Giveaway() {
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-              Win a <span className="text-primary">PRS Guitar</span>
+              Win a <span className="text-primary">Beach Bundle!</span>
             </h1>
             <p className="text-foreground/60 mb-2 leading-relaxed">
               Sign up for a chance to win. A winner will be chosen on{" "}
-              <strong className="text-foreground">June 6th at Mars Music Hall</strong> and announced via email with a full show wrap-up.
+              <strong className="text-foreground">July 9th at The Acorn Center in Littleton</strong> and announced at the show and via email with a full show wrap-up.
             </p>
 
             <div className="border-t border-primary/10 my-6" />
