@@ -73,7 +73,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-08-20T19:00:00"),
     end: new Date("2026-08-20T23:00:00"),
     location: "8341 N Lockwood Ridge Rd, Sarasota, FL 34243, USA",
-    description: "Tickets to be announced",
+    description: "https://toast.app/r/encorelive/experiences/yaleo-santana-tribute",
   },
   {
     id: "6",
