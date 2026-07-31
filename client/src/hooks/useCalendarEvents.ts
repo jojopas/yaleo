@@ -91,6 +91,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "350 N Watertown St, Johnson Creek, WI 53038, USA",
     description: "Ticket Sales Coming Soon",
   },
+  {
+    id: "11",
+    title: "Balmoral Resort (Haines City, FL)",
+    start: new Date("2026-11-21T19:30:00"),
+    end: new Date("2026-11-21T23:00:00"),
+    location: "124 Kenny Blvd, Haines City, FL 33844, USA",
+    description: "Show starts 7:30 PM",
+  },
 ];
 
 export function useCalendarEvents() {
