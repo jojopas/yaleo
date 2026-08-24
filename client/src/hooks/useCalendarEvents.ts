@@ -99,6 +99,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "124 Kenny Blvd, Haines City, FL 33844, USA",
     description: "Show starts 7:30 PM",
   },
+  {
+    id: "12",
+    title: "Boca Black Box (Boca Raton, FL)",
+    start: new Date("2026-10-07T19:30:00"),
+    end: new Date("2026-10-07T23:00:00"),
+    location: "8221 Glades Road #10, Boca Raton, FL 33434, USA",
+    description: "Show starts 7:30 PM https://www.bocablackbox.com",
+  },
 ];
 
 export function useCalendarEvents() {
