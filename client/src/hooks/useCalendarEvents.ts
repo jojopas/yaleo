@@ -105,7 +105,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-10-07T19:30:00"),
     end: new Date("2026-10-07T23:00:00"),
     location: "8221 Glades Road #10, Boca Raton, FL 33434, USA",
-    description: "Show starts 7:30 PM https://www.bocablackbox.com",
+    description: "Show starts 7:30 PM https://bocablackbox.showare.com/eventperformances.asp?evt=1965",
   },
 ];
 
