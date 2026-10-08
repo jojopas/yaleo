@@ -107,6 +107,30 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "8221 Glades Road #10, Boca Raton, FL 33434, USA",
     description: "Show starts 7:30 PM https://bocablackbox.showare.com/eventperformances.asp?evt=1965",
   },
+  {
+    id: "13",
+    title: "Encore Live (Sarasota, FL)",
+    start: new Date("2026-11-18T19:30:00"),
+    end: new Date("2026-11-18T23:00:00"),
+    location: "8341 N Lockwood Ridge Rd, Sarasota, FL 34243, USA",
+    description: "Show starts 7:30 PM",
+  },
+  {
+    id: "14",
+    title: "Pigfest (Lakeland, FL)",
+    start: new Date("2027-01-23T12:00:00"),
+    end: new Date("2027-01-23T16:00:00"),
+    location: "Lakeland, FL",
+    description: "Free Show — 12:00 PM",
+  },
+  {
+    id: "15",
+    title: "Boca Black Box (Boca Raton, FL)",
+    start: new Date("2027-04-28T19:30:00"),
+    end: new Date("2027-04-28T23:00:00"),
+    location: "8221 Glades Road #10, Boca Raton, FL 33434, USA",
+    description: "Show starts 7:30 PM",
+  },
 ];
 
 export function useCalendarEvents() {
