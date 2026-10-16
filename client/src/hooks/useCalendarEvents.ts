@@ -131,6 +131,14 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "8221 Glades Road #10, Boca Raton, FL 33434, USA",
     description: "Show starts 7:30 PM",
   },
+  {
+    id: "16",
+    title: "Medley South Shore Bay (Wimauma, FL)",
+    start: new Date("2027-03-13T19:30:00"),
+    end: new Date("2027-03-13T23:00:00"),
+    location: "South Shore Bay, Wimauma, FL",
+    description: "Show starts 7:30 PM",
+  },
 ];
 
 export function useCalendarEvents() {
