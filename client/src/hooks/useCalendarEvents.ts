@@ -110,8 +110,8 @@ const STATIC_EVENTS: CalendarEvent[] = [
   {
     id: "13",
     title: "Encore Live (Sarasota, FL)",
-    start: new Date("2026-11-18T19:30:00"),
-    end: new Date("2026-11-18T23:00:00"),
+    start: new Date("2027-11-18T19:30:00"),
+    end: new Date("2027-11-18T23:00:00"),
     location: "8341 N Lockwood Ridge Rd, Sarasota, FL 34243, USA",
     description: "Show starts 7:30 PM",
   },
