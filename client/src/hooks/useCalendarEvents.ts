@@ -97,7 +97,7 @@ const STATIC_EVENTS: CalendarEvent[] = [
     start: new Date("2026-11-21T19:30:00"),
     end: new Date("2026-11-21T23:00:00"),
     location: "124 Kenny Blvd, Haines City, FL 33844, USA",
-    description: "Show starts 7:30 PM",
+    description: "Show starts 7:30 PM https://splashatbalmoralresort.com/product/ultimate-santana-experience/",
   },
   {
     id: "12",
