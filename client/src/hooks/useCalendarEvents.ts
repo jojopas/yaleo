@@ -139,6 +139,22 @@ const STATIC_EVENTS: CalendarEvent[] = [
     location: "South Shore Bay, Wimauma, FL",
     description: "Show starts 7:30 PM",
   },
+  {
+    id: "17",
+    title: "Twisted Fork (Port Charlotte, FL)",
+    start: new Date("2027-04-10T19:00:00"),
+    end: new Date("2027-04-10T22:00:00"),
+    location: "The Twisted Fork, 2208 El Jobean Rd, Port Charlotte, FL 33948, USA",
+    description: "Show 7:00–10:00 PM",
+  },
+  {
+    id: "18",
+    title: "Lake Wales Live (Lake Wales, FL)",
+    start: new Date("2027-04-23T19:00:00"),
+    end: new Date("2027-04-23T23:00:00"),
+    location: "N. Market St., Lake Wales, FL 33853",
+    description: "Outdoor event — Downtown Lake Wales",
+  },
 ];
 
 export function useCalendarEvents() {
